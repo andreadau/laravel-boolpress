@@ -6,8 +6,8 @@
             <div class="links">
                     <a href="/">Home</a>
                 <a href="{{ route('blog') }}">Blog</a>
-                <a href="{{ route('posts.index') }}">Posts</a>
-                <a href="{{ route('posts_api') }}">Posts API</a>
+                <a href="{{ route('articles.index') }}">Article</a>
+                <a href="{{ route('articles_api') }}">Article API</a>
         </div>
     </div>
 </header>

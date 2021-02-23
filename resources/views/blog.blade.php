@@ -2,10 +2,10 @@
 @section('main')
     <main>
         <div class="container">
-            @foreach($posts as $post)
-                <div class="posts">
-                    <h2>{{$post->title}}</h2>
-                    <p>{{$post->description}}</p>
+            @foreach($articles as $article)
+                <div class="articles">
+                    <h2>{{$article->title}}</h2>
+                    <p>{{$article->description}}</p>
                 </div>
             @endforeach
         </div>

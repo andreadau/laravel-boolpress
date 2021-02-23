@@ -2,16 +2,16 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-             <a href="api/posts">SHOW API</a>     
-                <div class="card" v-for="post in posts">
+             <a href="api/articles">SHOW API</a>     
+                <div class="card" v-for="article in articles">
                     <div class="card-header">
-                        <h3>{{ post.title }}</h3>
+                        <h3>{{ article.title }}</h3>
                         </div>
                     <div class="card-body">
-                        {{ post.description }}
+                        {{ article.description }}
                     </div>
                     <div class="card-footer">
-                        <span>Created at: {{ new Date(post.created_at).toLocaleString('it') }}</span>
+                        <span>Created at: {{ new Date(article.created_at).toLocaleString('it') }}</span>
                     </div>
                 </div>
             </div>
@@ -23,13 +23,13 @@
     export default {
         data(){
             return {
-                posts: ""
+                articles: ""
             } 
         },
         mounted() {
-            axios.get('api/posts').then(response => {
+            axios.get('api/articles').then(response => {
                 console.log(response.data.data);
-                this.posts = response.data.data;
+                this.articles = response.data.data;
             }).catch(error => {
                 console.log(error);
             })

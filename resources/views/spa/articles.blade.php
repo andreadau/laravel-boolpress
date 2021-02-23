@@ -2,7 +2,7 @@
 @section('main')
     <main>
         <div id="app">
-            <posts-component></posts-component>
+            <articles-component></articles-component>
         </div>
     </main>
 @endsection

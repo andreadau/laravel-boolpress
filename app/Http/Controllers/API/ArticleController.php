@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Post;
+use App\Article;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class ArticleController extends Controller
 {
     public function index()
     {
         return response()->json([
             'success' => true,
-            'data' => Post::all()
+            'data' => Article::all()
             ], 200);
     }
 }

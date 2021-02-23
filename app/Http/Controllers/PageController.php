@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
+use App\Article;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -19,17 +19,17 @@ class PageController extends Controller
      * Show index page
      *  @return view
      */
-    public function posts_api()
+    public function articles_api()
     {
-        return view('spa.posts');
+        return view('spa.articles');
     }
       /**
-     * Show post page
+     * Show article page
      *  @return view
      */
-    public function blog(Post $post)
+    public function blog(Article $article)
     {
-        $posts = $post->all();
-        return view('blog', compact("posts"));
+        $articles = $article->all();
+        return view('blog', compact("articles"));
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
+use App\Article;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->get();
-        //dd($posts);
-        return view('posts.index', compact('posts'));
+        $articles = Article::latest()->get();
+        return view('articles.index', compact('articles'));
     }
 
     /**
@@ -26,7 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('articles.create');
     }
 
     /**
@@ -39,65 +38,65 @@ class PostController extends Controller
     {
         $data = $request->all();
         $request->validate([
-            'title' => 'required|unique:posts|max:255',
+            'title' => 'required|unique:articles|max:255',
             'description' => 'required',
             ]);
-        $postNew = new Post;
-        $postNew->title = $data['title'];
-        $postNew->description = $data['description'];
-        $postNew->save();
+        $articleNew = new Article;
+        $articleNew->title = $data['title'];
+        $articleNew->description = $data['description'];
+        $articleNew->save();
 
-        return redirect()->route('posts.index');
+        return redirect()->route('articles.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Article $article)
     {
-        return view('posts.show',compact('post'));
+        return view('articles.show',compact('article'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Article $article)
     {
-        return view('posts.edit', compact('post'));
+        return view('articles.edit', compact('article'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Post  $post
+     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Article $article)
     {
         $request->validate([
             'title' => 'required|max:255',
             'description' => 'required',
             ]);
-        $post->update($request->all());
-        return redirect()->route('posts.index');
+        $article->update($request->all());
+        return redirect()->route('articles.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Post  $post
+     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Article $article)
     {
-        $post->delete();
-        return redirect()->route('posts.index');
+        $article->delete();
+        return redirect()->route('articles.index');
     }
 }

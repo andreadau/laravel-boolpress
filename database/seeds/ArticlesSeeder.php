@@ -1,10 +1,10 @@
 <?php
 
-use App\Post;
+use App\Article;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 
-class PostsSeeder extends Seeder
+class ArticlesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,10 +14,10 @@ class PostsSeeder extends Seeder
     public function run(Faker $faker)
     {
         for ($i=0; $i < 20; $i++) { 
-            $newPost = new Post();
-            $newPost->title = $faker->words(3,true);
-            $newPost->description = $faker->sentence(15);
-            $newPost->Save();
+            $newArticle = new Article();
+            $newArticle->title = $faker->words(3,true);
+            $newArticle->description = $faker->sentence(15);
+            $newArticle->Save();
         }
     }
 }
