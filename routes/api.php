@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('articles', 'API\ArticleController@index');
+Route::get('categories', 'API\CategoriesController@index');
+Route::get('tags', 'API\TagsController@index');

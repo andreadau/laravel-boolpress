@@ -10,10 +10,11 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        $newPost = new Post();
-        $newPost->title = $faker->words(3,true);
-        $newPost->description = $faker->sentence(15);
-        $newPost->Save();
+    {   
+         $this->call([
+        ArticlesSeeder::class,
+        CategoriesSeeder::class,
+        TagsSeeder::class,
+    ]);
     }
 }

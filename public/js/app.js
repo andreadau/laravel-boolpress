@@ -1976,6 +1976,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -38251,7 +38253,15 @@ var render = function() {
         "div",
         { staticClass: "col-md-12" },
         [
-          _c("a", { attrs: { href: "api/articles" } }, [_vm._v("SHOW API")]),
+          _c("a", { attrs: { href: "api/articles" } }, [
+            _vm._v("SHOW ARTICLES API")
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "api/categories" } }, [
+            _vm._v("SHOW CATEGORIES API")
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "api/tags" } }, [_vm._v("SHOW TAGS API")]),
           _vm._v(" "),
           _vm._l(_vm.articles, function(article) {
             return _c("div", { staticClass: "card" }, [
