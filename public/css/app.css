@@ -1,0 +1,163 @@
+body {
+  background-color: #fff;
+  color: #636b6f;
+  font-family: "Nunito", sans-serif;
+  font-weight: 200;
+  margin: 0;
+}
+
+main {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.container {
+  width: 40%;
+  margin: auto;
+}
+
+.container a {
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin: 5px;
+  background-color: #636b6f;
+  font-weight: bold;
+}
+
+.container a:hover {
+  transition: 0.3s;
+  padding: 10px;
+  color: black;
+  background-color: yellow;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: 20px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.posts:hover .btn {
+  background-color: red;
+  border: 1px solid black;
+}
+
+.btn {
+  padding: 5.6px;
+  background-color: #636b6f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+}
+
+.btn:hover {
+  padding: 10px;
+  transition: 0.3s;
+  border: 1px solid black;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
+
+.form-button {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.posts:hover {
+  transition: 0.6s;
+  background-color: #636b6f;
+  color: white;
+}
+
+.posts:hover a {
+  transition: 0.3s;
+  background-color: yellow;
+  color: black;
+}
+
+.top-right {
+  position: absolute;
+  right: 10px;
+  top: 18px;
+}
+
+.alert {
+  text-align: center;
+}
+
+.alert p {
+  font-size: 2em;
+  color: red;
+}
+
+.content {
+  text-align: center;
+}
+
+.title {
+  font-size: 84px;
+}
+
+.links > a {
+  color: #636b6f;
+  padding: 0 25px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.m-b-md {
+  margin-bottom: 30px;
+}
+
+form label {
+  display: block;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+form input {
+  width: 30%;
+  padding: 15px;
+  font-size: 1.5em;
+}
+
+form textarea {
+  width: 30%;
+  padding: 20px;
+  font-size: 1.5em;
+  margin-bottom: 30px;
+}
+
+.btn-lg {
+  padding: 10px 20px;
+  font-size: 20px;
+  border: none;
+  background-color: #636b6f;
+  color: white;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+
+.btn-lg:hover {
+  border: 1px solid black;
+  background-color: yellow;
+  color: black;
+  cursor: pointer;
+}
+
