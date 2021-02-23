@@ -16,14 +16,6 @@ class PageController extends Controller
         return view('welcome');
     }
       /**
-     * Show about page
-     *  @return view
-     */
-    public function about()
-    {
-        return view('about');
-    }
-      /**
      * Show post page
      *  @return view
      */

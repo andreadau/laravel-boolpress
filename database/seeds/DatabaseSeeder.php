@@ -11,6 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $newPost = new Post();
+        $newPost->title = $faker->words(3,true);
+        $newPost->description = $faker->sentence(15);
+        $newPost->Save();
     }
 }
