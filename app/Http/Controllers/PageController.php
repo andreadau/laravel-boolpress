@@ -15,6 +15,14 @@ class PageController extends Controller
     {
         return view('welcome');
     }
+           /**
+     * Show index page
+     *  @return view
+     */
+    public function posts_api()
+    {
+        return view('spa.posts');
+    }
       /**
      * Show post page
      *  @return view

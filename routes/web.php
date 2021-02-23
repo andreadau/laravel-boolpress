@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PageController@index')->name('home');
 Route::get('blog', 'PageController@blog')->name('blog');
-
+Route::get('posts_api', 'PageController@posts_api')->name('posts_api');
 // Resource Controller
 
 Route::resource('posts', 'PostController');
