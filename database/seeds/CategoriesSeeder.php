@@ -1,6 +1,6 @@
 <?php
 
-use App\Categories;
+use App\Category;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 
@@ -14,8 +14,8 @@ class CategoriesSeeder extends Seeder
     public function run(Faker $faker)
     {
         for ($i=0; $i < 20; $i++) { 
-            $newCategories = new Categories();
-            $newCategories->name = $faker->words();
+            $newCategories = new Category();
+            $newCategories->name = $faker->words(6,true);
             $newCategories->Save();
         }
     }

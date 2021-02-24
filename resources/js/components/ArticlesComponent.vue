@@ -2,9 +2,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-             <a href="api/articles">SHOW ARTICLES API</a> 
-             <a href="api/categories">SHOW CATEGORIES API</a>     
-             <a href="api/tags">SHOW TAGS API</a>     
+             <a href="api/articles">ARTICLES API</a> 
+             <a href="api/categories">CATEGORIES API</a>     
+             <a href="api/tags">TAGS API</a>     
                 <div class="card" v-for="article in articles">
                     <div class="card-header">
                         <h3>{{ article.title }}</h3>
