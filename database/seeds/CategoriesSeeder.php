@@ -15,7 +15,8 @@ class CategoriesSeeder extends Seeder
     {
         for ($i=0; $i < 20; $i++) { 
             $newCategories = new Category();
-            $newCategories->name = $faker->words(6,true);
+            $newCategories->name = $faker->word();
+            $newCategories->description = $faker->sentence(10);
             $newCategories->Save();
         }
     }
