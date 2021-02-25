@@ -9,13 +9,12 @@ class Article extends Model
     //
     protected $fillable = ['title','description'];
     
-    public function category(Type $var = null)
+    public function category()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo(Category::Class);
     }
-    public function tags(Type $var = null)
+    public function tags()
     {
-        return $this->belongsTo('App\Tag');
+        return $this->belongsTo(Tag::Class, 'tags_id');
     }
 }
- 

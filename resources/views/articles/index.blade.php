@@ -7,6 +7,8 @@
                 <div class="articles">
                     <h2>{{$article->title}}</h2>
                     <p>{{$article->description}}</p>
+                    <p>Category : {{$article->category ? $article->category->name : 'N/A' }}</p>
+                    <p>Tags : {{$article->tags ? $article->tags->name : 'N/A' }}</p>
                     <div class="form-button">
                         <a href="{{ route('articles.show', ['article' => $article->id]) }}">
                             <i class="fas fa-eye fa-md fa-fw"></i>

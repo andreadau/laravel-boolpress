@@ -1978,6 +1978,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1987,8 +1990,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
+    // Article Api Call
     axios.get('api/articles').then(function (response) {
-      console.log(response.data.data);
       _this.articles = response.data.data;
     })["catch"](function (error) {
       console.log(error);
@@ -38263,7 +38266,7 @@ var render = function() {
           _vm._v(" "),
           _c("a", { attrs: { href: "api/tags" } }, [_vm._v("TAGS API")]),
           _vm._v(" "),
-          _vm._l(_vm.articles, function(article) {
+          _vm._l(_vm.articles, function(article, index) {
             return _c("div", { staticClass: "card" }, [
               _c("div", { staticClass: "card-header" }, [
                 _c("h3", [_vm._v(_vm._s(article.title))])
@@ -38273,10 +38276,16 @@ var render = function() {
                 _vm._v(
                   "\n                    " +
                     _vm._s(article.description) +
-                    "\n                "
+                    "\n                    " +
+                    _vm._s(article.category_name) +
+                    "\n\n                "
                 )
               ]),
-              _vm._v(" "),
+              _vm._v(
+                "\n                    " +
+                  _vm._s(article.category) +
+                  "\n                "
+              ),
               _c("div", { staticClass: "card-footer" }, [
                 _c("span", [
                   _vm._v(

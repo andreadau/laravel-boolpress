@@ -5,13 +5,16 @@
              <a href="api/articles">ARTICLES API</a> 
              <a href="api/categories">CATEGORIES API</a>     
              <a href="api/tags">TAGS API</a>     
-                <div class="card" v-for="article in articles">
+                <div class="card" v-for="(article,index) in articles">
                     <div class="card-header">
                         <h3>{{ article.title }}</h3>
-                        </div>
+                    </div>
                     <div class="card-body">
                         {{ article.description }}
+                        {{ article.category_name }}
+
                     </div>
+                        {{ article.category}}
                     <div class="card-footer">
                         <span>Created at: {{ new Date(article.created_at).toLocaleString('it') }}</span>
                     </div>
@@ -25,17 +28,18 @@
     export default {
         data(){
             return {
-                articles: ""
+                articles: "",
             } 
         },
         mounted() {
+            // Article Api Call
             axios.get('api/articles').then(response => {
-                console.log(response.data.data);
                 this.articles = response.data.data;
             }).catch(error => {
                 console.log(error);
-            })
+            });
         }
+        
     }
 </script>
 <style lang="scss" scoped>

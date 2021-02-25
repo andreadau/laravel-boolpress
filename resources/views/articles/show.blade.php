@@ -6,6 +6,8 @@
                 <div class="articles">
                     <h2>{{$article->title}}</h2>
                     <p>{{$article->description}}</p>
+                    <p>Category : {{$article->category ? $article->category->name : 'N/A' }}</p>
+                    <p>Tags : {{$article->tags ? $article->tags->name : 'N/A' }}</p>
                     <div class="form-group">
                         <p>
                             <a href="{{ route('articles.edit', ['article' => $article->id]) }}">
