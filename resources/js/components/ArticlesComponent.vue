@@ -12,8 +12,13 @@
                     <div class="card-body">
                         {{ article.description }}
                     </div>
-                    <div  v-if="article.category">
+                    <div  v-if="article.category && article.tags">
                         <p> Category : {{ article.category.name }} </p>
+                        <p> Tags : 
+                        <span v-for="(tag,index) in article.tags"> 
+                            #{{ tag.name }} 
+                        </span>
+                        </p>
                     </div>
                     <div class="card-footer">
                         <span>Created at: {{ new Date(article.created_at).toLocaleString('it') }}</span>

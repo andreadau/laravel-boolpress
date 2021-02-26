@@ -1981,6 +1981,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -38285,13 +38290,30 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              article.category
+              article.category && article.tags
                 ? _c("div", [
                     _c("p", [
                       _vm._v(
                         " Category : " + _vm._s(article.category.name) + " "
                       )
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      [
+                        _vm._v(" Tags : \n                    "),
+                        _vm._l(article.tags, function(tag, index) {
+                          return _c("span", [
+                            _vm._v(
+                              " \n                        #" +
+                                _vm._s(tag.name) +
+                                " \n                    "
+                            )
+                          ])
+                        })
+                      ],
+                      2
+                    )
                   ])
                 : _vm._e(),
               _vm._v(" "),
