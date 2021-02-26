@@ -11,10 +11,10 @@
                     </div>
                     <div class="card-body">
                         {{ article.description }}
-                        {{ article.category_name }}
-
                     </div>
-                        {{ article.category}}
+                    <div  v-if="article.category">
+                        <p> Category : {{ article.category.name }} </p>
+                    </div>
                     <div class="card-footer">
                         <span>Created at: {{ new Date(article.created_at).toLocaleString('it') }}</span>
                     </div>
@@ -28,7 +28,7 @@
     export default {
         data(){
             return {
-                articles: "",
+                articles: { type: Object, default: () => ({}) }
             } 
         },
         mounted() {

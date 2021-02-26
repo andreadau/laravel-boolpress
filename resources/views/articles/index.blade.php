@@ -8,7 +8,15 @@
                     <h2>{{$article->title}}</h2>
                     <p>{{$article->description}}</p>
                     <p>Category : {{$article->category ? $article->category->name : 'N/A' }}</p>
-                    <p>Tags : {{$article->tags ? $article->tags->name : 'N/A' }}</p>
+                    <p>Tags : 
+                        @if(count($article->tags) > 0 )
+                            @foreach($article->tags as $tag)
+                            <span>{{$tag->name}}</span>
+                            @endforeach
+                        @else
+                            <span>N/A</span>
+                        @endif
+                    </p>
                     <div class="form-button">
                         <a href="{{ route('articles.show', ['article' => $article->id]) }}">
                             <i class="fas fa-eye fa-md fa-fw"></i>

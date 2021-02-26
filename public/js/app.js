@@ -1984,7 +1984,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      articles: ""
+      articles: {
+        type: Object,
+        "default": function _default() {
+          return {};
+        }
+      }
     };
   },
   mounted: function mounted() {
@@ -38276,16 +38281,20 @@ var render = function() {
                 _vm._v(
                   "\n                    " +
                     _vm._s(article.description) +
-                    "\n                    " +
-                    _vm._s(article.category_name) +
-                    "\n\n                "
+                    "\n                "
                 )
               ]),
-              _vm._v(
-                "\n                    " +
-                  _vm._s(article.category) +
-                  "\n                "
-              ),
+              _vm._v(" "),
+              article.category
+                ? _c("div", [
+                    _c("p", [
+                      _vm._v(
+                        " Category : " + _vm._s(article.category.name) + " "
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
               _c("div", { staticClass: "card-footer" }, [
                 _c("span", [
                   _vm._v(

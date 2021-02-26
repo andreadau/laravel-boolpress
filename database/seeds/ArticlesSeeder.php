@@ -13,7 +13,7 @@ class ArticlesSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 22; $i++) { 
+        for ($i=0; $i < 20; $i++) { 
             $newArticle = new Article();
             $newArticle->title = $faker->words(3,true);
             $newArticle->description = $faker->sentence(15);

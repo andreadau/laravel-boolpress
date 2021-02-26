@@ -15,9 +15,7 @@ class AddForeignToArticleTable extends Migration
     {
         Schema::table('articles', function (Blueprint $table) {
             $table->unsignedBigInteger('category_id')->after('id')->nullable();
-            $table->unsignedBigInteger('tags_id')->after('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('tags_id')->references('id')->on('tags');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 
@@ -30,10 +28,7 @@ class AddForeignToArticleTable extends Migration
     {
         Schema::table('articles', function (Blueprint $table) {
             $table->dropForeign('articles_category_id_foreign');
-            $table->dropForeign('articles_tags_id_foreign');
             $table->dropColumn('category_id');
-            $table->dropColumn('tags_id');
-
         });
     }
 }

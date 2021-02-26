@@ -12,7 +12,7 @@ class ArticleController extends Controller
     {
         return response()->json([
             'success' => true,
-            'data' => Article::all()
+            'data' => Article::with('category','tags')->get()
             ], 200);
     }
 }

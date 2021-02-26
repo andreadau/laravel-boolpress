@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Tag;
+use App\Category;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -25,7 +27,9 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        $tags = Tag::all();
+        $categories = Category::all();
+        return view('articles.create', compact('tags','categories'));
     }
 
     /**
@@ -36,18 +40,18 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $request->validate([
-            'title' => 'required|unique:articles|max:255',
+        $validatedData = $request->validate([
+            'title' => 'required|unique:articles',
             'description' => 'required',
-            ]);
-        $articleNew = new Article;
-        $articleNew->title = $data['title'];
-        $articleNew->description = $data['description'];
-        $articleNew->save();
+            ]);            
 
+        Article::create($validatedData);
+
+        $articleNew = Article::orderBy('id', 'desc')->first();
+        $articleNew->tags()->attach($request->tags);
+        $articleNew->category()->associate($request->category_id)->save();
         return redirect()->route('articles.index');
-    }
+    }           
 
     /**
      * Display the specified resource.
@@ -68,7 +72,9 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('articles.edit', compact('article'));
+        $tags = Tag::all();
+        $categories = Category::all();
+        return view('articles.edit', compact('article','tags','categories'));
     }
 
     /**
@@ -81,10 +87,12 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $request->validate([
-            'title' => 'required|max:255',
+            'title' => 'required',
             'description' => 'required',
             ]);
-        $article->update($request->all());
+            $article->update($request->all());  
+            $article->tags()->sync($request->tags);
+            $article->category()->associate($request->category_id)->save();
         return redirect()->route('articles.index');
     }
 
