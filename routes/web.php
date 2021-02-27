@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PageController@index')->name('home');
 Route::get('blog', 'PageController@blog')->name('blog');
 Route::get('article_api', 'PageController@articles_api')->name('articles_api');
+
 // Resource Controller
 
 Route::resource('articles', 'ArticleController');
+Route::resource('categories', 'CategoryController');
+Route::resource('tags', 'TagController');
+
